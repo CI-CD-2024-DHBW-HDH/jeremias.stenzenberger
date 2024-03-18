@@ -3,9 +3,9 @@ name: Github Deployment
 on:
 #  workflow_dispatch
   push:
-    branches: [ "klausur" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "klausur" ]
+    branches: [ "main" ]
     
 permissions:
   contents: write
