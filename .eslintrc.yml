@@ -2,12 +2,19 @@ env:
   browser: true
   es2021: true
 extends:
-  - eslint:recommended
-  - plugin:@typescript-eslint/recommended
+  - standard
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
-  sourceType: module
+  extraFileExtensions: ['.svelte']
 plugins:
   - '@typescript-eslint'
-rules: {}
+  - 'svelte3'
+  - 'unused-imports'
+overrides: [{files: ['*.svelte'], processor: 'svelte3/svelte3'}]
+rules: {
+  no-unused-vars: off
+  }
+settings: {
+  'svelte3/typescript': true
+}
