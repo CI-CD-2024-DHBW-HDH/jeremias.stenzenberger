@@ -48,13 +48,15 @@ npm run dev
    * Welche Vorteile ein Kubernetes Deployment gegenüber einem Kubernetes Pod hat **(2 Punkte)**
      * zentrale Verwaltung der Pods über das Deployment(-File)
      * Pods können innerhalb des Deployments skaliert werden
+     * Deployments können Pods dynamisch mit definierten regeln erstellen oder löschen, je nachdem ob einzelne Nodes abstürzen
    * Wofür ein Kubernetes Service gut ist **(2 Punkte)**
      * interne Lastenverteilung zwischen den Pods
      * stellen eine einheitliche Anlaufstelle zu den (und zwischen den) Pods zur Verfügung. Die IP-Adressen der einzelnen Pods könnten sich ändern, so dass diese bei der Verwendung einer fest hinterlegten IP-Adresse möglicherweise nicht mehr angesprochen werden können. Verwendet man einen Service, treten solche Probleme nicht auf
+     * In den Anwendungen müssen keine Service Discovery Mechanismen implementiert werden
    * Mehrere Wege wie man eine Kubernetes Anwendung von außen erreichen kann **(3 Punkte)**
-     * über einen Ingress Controller (z.B. nginx)
+     * über einen Ingress-Service, der einkommenten HTTP-Verkehr verarbeitet. Dieser kann auch Load-Balancing betreiben, SSL terminieren und Namensbasiertes (DNS)-Hosting z.B. über einen Nginx-Ingress-Controller.
      * über einen NodePort-Service, der an den jeweiligen Nodes den angegebenen Port öffnet und über den Service an die Pods weiterleitet
-     * über einen LoadBalancer(-Service)
+     * über einen LoadBalancer(-Service). Bei der Anlage dieses Services, legt der Cloud-Provider einen externen LoadBalancer an. Dieser stellt eine erreichbare IP zur Verfügung, über den die Pods auf den Nodes erreicht werden können
 
 ## Zusatzaufgabe:
 
