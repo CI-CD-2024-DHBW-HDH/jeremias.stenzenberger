@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: klausur-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: klausur
+        image: ghcr.io/ci-cd-2024-dhbw-hdh/jeremias.stenzenberger/klausur:latest
+      imagePullSecrets:
+      - name: regcred
+      restartPolicy: Never
+  backoffLimit: 4
+
